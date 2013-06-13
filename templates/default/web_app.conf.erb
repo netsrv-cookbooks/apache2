@@ -44,4 +44,7 @@
   RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
   RewriteCond %{SCRIPT_FILENAME} !maintenance.html
   RewriteRule ^.*$ /system/maintenance.html [L]
+  
+  # Include additional configurations
+  Include <%= node['apache']['dir'] %>/conf.d/<%= @params[:name] %>/
 </VirtualHost>

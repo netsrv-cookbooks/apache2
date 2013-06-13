@@ -140,6 +140,12 @@ directory "#{node['apache']['dir']}/conf.d" do
   group node['apache']['root_group']
 end
 
+directory "#{node['apache']['dir']}/conf.d/default" do
+  mode 00755
+  owner "root"
+  group node['apache']['root_group']
+end 
+
 directory node['apache']['cache_dir'] do
   mode 00755
   owner "root"

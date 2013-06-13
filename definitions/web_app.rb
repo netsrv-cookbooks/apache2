@@ -26,6 +26,10 @@ define :web_app, :template => "web_app.conf.erb", :enable => true do
   include_recipe "apache2::mod_deflate"
   include_recipe "apache2::mod_headers"
 
+  directory "#{node['apache']['dir']}/conf.d/#{params[:name]}" do
+    mode 00755
+  end
+  
   template "#{node['apache']['dir']}/sites-available/#{application_name}.conf" do
     source params[:template]
     owner "root"
@@ -47,4 +51,5 @@ define :web_app, :template => "web_app.conf.erb", :enable => true do
   apache_site "#{params[:name]}.conf" do
     enable site_enabled
   end
+  
 end

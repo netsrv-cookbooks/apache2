@@ -546,6 +546,13 @@ create a basic role for web servers that provide both HTTP and HTTPS:
 For examples of using the definitions in your own recipes, see their
 respective sections above.
 
+A directory is created within /etc/httpd/conf.d for each virtual host 
+and all *.conf files within will be included in the relevant vhost
+configuration.
+
+For example: for a web_app resource called "myapp", a directory
+/etc/http.d/conf.d/myapp will be created.
+
 License and Authors
 ===================
 
